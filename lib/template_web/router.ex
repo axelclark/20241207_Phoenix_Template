@@ -17,6 +17,11 @@ defmodule TemplateWeb.Router do
   scope "/", TemplateWeb do
     pipe_through :browser
 
+    live "/posts", PostLive.Index, :index
+    live "/posts/new", PostLive.Form, :new
+    live "/posts/:id", PostLive.Show, :show
+    live "/posts/:id/edit", PostLive.Form, :edit
+
     get "/", PageController, :home
   end
 
